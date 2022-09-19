@@ -106,7 +106,6 @@ int main(void)
 	HAL_ADC_Start(&hadc);
 	if(HAL_ADC_PollForConversion(&hadc, 5)==HAL_OK) {
 		adcValue = HAL_ADC_GetValue(&hadc);
-
 	}
 	HAL_ADC_Stop(&hadc);
 	HAL_Delay(100);
