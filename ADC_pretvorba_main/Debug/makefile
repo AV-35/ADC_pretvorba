@@ -9,7 +9,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include Drivers/STM32F0xx_HAL_Driver/Src/subdir.mk
+-include Drivers/STM32L4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := Vaja1_ADC_pretvorba
+BUILD_ARTIFACT_NAME := ADC_pretvorba_main
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-Vaja1_ADC_pretvorba.elf \
+ADC_pretvorba_main.elf \
 
 MAP_FILES += \
-Vaja1_ADC_pretvorba.map \
+ADC_pretvorba_main.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-Vaja1_ADC_pretvorba.list \
+ADC_pretvorba_main.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: Vaja1_ADC_pretvorba.elf secondary-outputs
+main-build: ADC_pretvorba_main.elf secondary-outputs
 
 # Tool invocations
-Vaja1_ADC_pretvorba.elf Vaja1_ADC_pretvorba.map: $(OBJS) $(USER_OBJS) D:\Programing\GitHub\Enkratna_ADC_pretvorba\Ekratna_ADC_pretvorba_main\STM32F091RCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Vaja1_ADC_pretvorba.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0 -T"D:\Programing\GitHub\Enkratna_ADC_pretvorba\Ekratna_ADC_pretvorba_main\STM32F091RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Vaja1_ADC_pretvorba.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+ADC_pretvorba_main.elf ADC_pretvorba_main.map: $(OBJS) $(USER_OBJS) C:\Users\U213.03\Documents\AV_JF\GitHub\ADC_pretvorba\ADC_pretvorba_main\STM32L476RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "ADC_pretvorba_main.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\U213.03\Documents\AV_JF\GitHub\ADC_pretvorba\ADC_pretvorba_main\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_pretvorba_main.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Vaja1_ADC_pretvorba.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Vaja1_ADC_pretvorba.list"
+ADC_pretvorba_main.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "ADC_pretvorba_main.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) Vaja1_ADC_pretvorba.elf Vaja1_ADC_pretvorba.list Vaja1_ADC_pretvorba.map default.size.stdout
+	-$(RM) ADC_pretvorba_main.elf ADC_pretvorba_main.list ADC_pretvorba_main.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
