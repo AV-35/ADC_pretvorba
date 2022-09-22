@@ -16,7 +16,7 @@
       | od 0 do 63 | od 0 do 1023 | od 0 do 4095 | od 0 do 65535 |
 
 ## CubeMx PinOut      
-![PinOut](Media/Posnetek%20zaslona%202022-09-22%20071535.png)
+![PinOut](Media/CubeMx_PinOut.png)
 
 ## Komenatar
-Delovanje se mi zdi brez problemov.
+Delovanje se mi zdi brezhibno.
