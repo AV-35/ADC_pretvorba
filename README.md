@@ -19,4 +19,4 @@
 ![PinOut](Media/CubeMx_PinOut.png)
 
 ## Komenatar
-Delovanje se mi zdi brezhibno.
+Delovanje se mi zdi brezhibno.  
