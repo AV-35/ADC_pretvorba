@@ -18,5 +18,9 @@
 ## CubeMx PinOut      
 ![PinOut](Media/CubeMx_PinOut.png)
 
+## Poteniciometer
+![Potenciometer](Media/Potenciometer.jpg)  
+
 ## Komenatar
-Delovanje se mi zdi brezhibno.  
+Delovanje se mi zdi brezhibno.
+
